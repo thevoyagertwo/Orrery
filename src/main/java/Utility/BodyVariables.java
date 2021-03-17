@@ -5,11 +5,6 @@ public class BodyVariables {
     private String name;
     private double mass, x, y, z, xv, yv ,zv;
 
-//    private double x;
-//    private double y;
-//    private double vx;
-//    private double vy;
-//    private Object ArrayList;
 
     public BodyVariables(String name,double mass,double x,double y,double z,double xv,double yv,double zv) {
         this.name = name;
@@ -25,25 +20,7 @@ public class BodyVariables {
 
     public static BodyVariables TestBody() {
         BodyVariables body = new BodyVariables("planet1",1.0,1.0,0.0,0.0,0.0,1.0,0.0);
-//        double m1  =  1;
-//        double x1  =  1;
-//        double y1  =  1;
-//        double vx1 =  0;
-//        double vy1 =  1;
-//
-//        double m2  =  1;
-//        double x2  =  1;
-//        double y2  =  1;
-//        double vx2 =  0;
-//        double vy2 = -1;
 
-//        BodyVariables[] twoBody = new BodyVariables[2];
-
-//        ArrayList<BodyVariables> twoBody = new ArrayList<BodyVariables>();
-//        twoBody.add(new BodyVariables("Planet1", 1.0) );
-//        twoBody.add(new BodyVariables("Planet2", 1.0) );
-//
-//        twoBody.getBodyVariables();
         return body;
     }
 
