@@ -1,6 +1,8 @@
 import Utility.BodyVariables;
 import Utility.BodyVariablesArray;
 
+import java.util.Arrays;
+
 
 public class main {
 
@@ -18,9 +20,15 @@ public class main {
         BodyVariablesArray twoBody = new BodyVariablesArray();
 
 
-        System.out.println(twoBody.bodies.get(1).getz());
+        System.out.println(twoBody.bodies.get(0).getMass() + " getMass");
 
         System.out.println(twoBody.calculateDistance(0 , 1));
+
+
+        // should be opposite sign as they calculate 0's force on 1 then vice versa
+        System.out.println(Arrays.toString(twoBody.calculateAttractionTwoBody(0, 1)));
+        System.out.println(Arrays.toString(twoBody.calculateAttractionTwoBody(1, 0)));
+
 
     }
 
