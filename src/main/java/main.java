@@ -1,8 +1,5 @@
 import Utility.BodyVariables;
 import Utility.BodyVariablesArray;
-import org.w3c.dom.Attr;
-
-import java.util.ArrayList;
 
 
 public class main {
@@ -23,7 +20,7 @@ public class main {
 
         System.out.println(twoBody.bodies.get(0).getxv());
 
-        System.out.println(twoBody.calulateDistance(0 , 1));
+        System.out.println(twoBody.calculateDistance(0 , 1));
 
     }
 

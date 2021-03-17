@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class BodyVariables {
     private String name;
-    private double mass, x, y, xv, yv;
+    private double mass, x, y, z, xv, yv ,zv;
 
 //    private double x;
 //    private double y;
@@ -11,7 +11,7 @@ public class BodyVariables {
 //    private double vy;
 //    private Object ArrayList;
 
-    public BodyVariables(String name,double mass,double x,double y,double xv,double yv) {
+    public BodyVariables(String name,double mass,double x,double y,double z,double xv,double yv,double zv) {
         this.name = name;
         this.mass = mass;
         this.x    = x;
@@ -22,7 +22,7 @@ public class BodyVariables {
     }
 
     public static BodyVariables TestBody() {
-        BodyVariables body = new BodyVariables("planet1",1.0,1.0,0.0,0.0,1.0);
+        BodyVariables body = new BodyVariables("planet1",1.0,1.0,0.0,0.0,0.0,1.0,0.0);
 //        double m1  =  1;
 //        double x1  =  1;
 //        double y1  =  1;
@@ -89,8 +89,19 @@ public class BodyVariables {
         return this.yv;
     }
 
+    public void setz(double z){
+        this.z = z;
+    }
+    public double getz(){
+        return this.z;
+    }
 
-
+    public void setzv(double zv){
+        this.zv = zv;
+    }
+    public double getzv(){
+        return this.zv;
+    }
 
 
 }

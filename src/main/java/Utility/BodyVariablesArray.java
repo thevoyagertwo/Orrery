@@ -6,8 +6,9 @@ public class BodyVariablesArray {
 
         // Equations used:
         /*
-        F = ma
-        F = GMm/r^2
+        1 F = ma
+        2 F = GMm/r^2
+        3 F_x1 = GMm(r_x1 - r_x2)/r^3
 
          */
 
@@ -18,23 +19,29 @@ public class BodyVariablesArray {
         public ArrayList<BodyVariables> bodies;
 
         public BodyVariablesArray() {
-                bodies = new ArrayList();
+                bodies = new ArrayList<BodyVariables>();
 
-                bodies.add(new BodyVariables("planet1",1.0,1.0 , 0.0, 0.0, 1.0 ) );
-                bodies.add(new BodyVariables("planet2",1.0,-1.0, 0.0, 0.0, -1.0) );
+                bodies.add(new BodyVariables("planet1",1.0,1.0 , 0.0, 0.0, 0.0 ,1.0 ,0) );
+                bodies.add(new BodyVariables("planet2",1.0,-1.0, 0.0, 0.0, 0.0 ,-1.0,0) );
 
         }
 
         // Calculates the distance between two using pythagoras 2D
-        public double calulateDistance(int body1,int body2) {
+        public double calculateDistance(int body1, int body2) {
                 return Math.sqrt(
                          Math.pow(this.bodies.get(body1).getx() + this.bodies.get(body2).gety(),2)
                         +Math.pow(this.bodies.get(body1).getx() + this.bodies.get(body2).gety(),2)
+                        +Math.pow(this.bodies.get(body1).getz() + this.bodies.get(body2).getz(),2)
                 );
         }
 
-        public double calulateAttraction(int body1, int body2){
-                return G * this.calulateDistance(body1, body2);
+
+        // Uses equation 3 to calulate force array
+        public double[] calulateAttractionTwoBody(int body1, int body2){
+                double[] attraction = {0.0,0.0,0.0};
+
+
+                return attraction;
         }
 }
 
