@@ -1,5 +1,4 @@
 package Utility;
-
 import java.util.ArrayList;
 
 public class BodyVariables {
@@ -19,6 +18,7 @@ public class BodyVariables {
         this.y    = y;
         this.xv   = xv;
         this.yv   = yv;
+
     }
 
     public static BodyVariables TestBody() {
