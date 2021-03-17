@@ -20,7 +20,7 @@ public class main {
         BodyVariablesArray twoBody = new BodyVariablesArray();
 
 
-        System.out.println(twoBody.bodies.get(0).getName());
+        System.out.println(twoBody.bodies.get(0).getxv());
 
     }
 

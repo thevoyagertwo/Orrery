@@ -50,7 +50,6 @@ public class BodyVariables {
     public void setName(String name) {
         this.name = name;
     }
-
     public String getName() {
         return this.name;
     }
@@ -58,10 +57,41 @@ public class BodyVariables {
     public void setMass(double mass) {
         this.mass = mass;
     }
-
     public double getMass() {
         return mass;
     }
+
+    public void setx(double x){
+        this.x = x;
+    }
+    public double getx(){
+        return this.x;
+    }
+
+    public void setxv(double xv){
+        this.xv = xv;
+    }
+    public double getxv(){
+        return this.xv;
+    }
+
+    public void sety(double y){
+    this.y = y;
+    }
+    public double gety(){
+        return this.y;
+    }
+
+    public void setyv(double yv){
+        this.yv = yv;
+    }
+    public double getyv(){
+        return this.yv;
+    }
+
+
+
+
 
 }
 
