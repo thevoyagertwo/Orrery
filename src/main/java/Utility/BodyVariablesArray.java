@@ -21,17 +21,17 @@ public class BodyVariablesArray {
         public BodyVariablesArray() {
                 bodies = new ArrayList<BodyVariables>();
 
-                bodies.add(new BodyVariables("planet1",1.0,1.0 , 0.0, 0.0, 0.0 ,1.0 ,0) );
-                bodies.add(new BodyVariables("planet2",1.0,-1.0, 0.0, 0.0, 0.0 ,-1.0,0) );
+                bodies.add(new BodyVariables("planet1",1.0, 1.0 , 0.0 , 0.0 , 0.0 ,1.0 ,0.0) );
+                bodies.add(new BodyVariables("planet2",1.0, -1.0, 0.0 , 0.0 , 0.0 ,-1.0,0.0) );
 
         }
 
         // Calculates the distance between two using pythagoras 2D
         public double calculateDistance(int body1, int body2) {
                 return Math.sqrt(
-                         Math.pow(this.bodies.get(body1).getx() + this.bodies.get(body2).gety(),2)
-                        +Math.pow(this.bodies.get(body1).getx() + this.bodies.get(body2).gety(),2)
-                        +Math.pow(this.bodies.get(body1).getz() + this.bodies.get(body2).getz(),2)
+                         Math.pow(this.bodies.get(body1).getx() + this.bodies.get(body2).getx(),2)
+                                 +Math.pow(this.bodies.get(body1).gety() + this.bodies.get(body2).gety(),2)
+                                 +Math.pow(this.bodies.get(body1).getz() + this.bodies.get(body2).getz(),2)
                 );
         }
 

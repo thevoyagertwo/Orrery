@@ -18,7 +18,7 @@ public class main {
         BodyVariablesArray twoBody = new BodyVariablesArray();
 
 
-        System.out.println(twoBody.bodies.get(0).getxv());
+        System.out.println(twoBody.bodies.get(1).getz());
 
         System.out.println(twoBody.calculateDistance(0 , 1));
 

@@ -16,8 +16,10 @@ public class BodyVariables {
         this.mass = mass;
         this.x    = x;
         this.y    = y;
+        this.z    = z;
         this.xv   = xv;
         this.yv   = yv;
+        this.zv   = zv;
 
     }
 
