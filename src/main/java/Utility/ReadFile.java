@@ -12,9 +12,9 @@ import java.util.Scanner; // Import the Scanner class to read text files
 public class ReadFile {
 
 
-    public static String[] fileReader(String args){
+    public static String[] fileReader(String bodyName){
         try {
-            String fileName = "voyager.txt";
+            String fileName = bodyName + ".txt"; // adds .txt to end of bodyName given
             String filePath = "C:\\Java_training\\Orrery\\data\\voyager\\";
             File bodyFile = new File(filePath + fileName);
 
@@ -22,13 +22,13 @@ public class ReadFile {
 
             String data = myReader.nextLine();
             myReader.close();
-            return stringToArray(data);
+            return stringToArray(data); // calls stringToArray to convert data
         }
         catch (FileNotFoundException e){
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-        return null;
+        return null; // returns null if FileNotFoundException is triggered
     }
 
     public static String[] stringToArray(String stringData){
