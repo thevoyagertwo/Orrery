@@ -30,8 +30,8 @@ public class main {
         System.out.println(Arrays.toString(twoBody.calculateAttractionTwoBody(0, 1)));
         System.out.println(Arrays.toString(twoBody.calculateAttractionTwoBody(1, 0)));
 
-        String testRead = ReadFile.fileReader("try");
-        System.out.println(testRead + "test");
+        String[] testRead = ReadFile.fileReader("try");
+        System.out.println(testRead[2]);
 
     }
 

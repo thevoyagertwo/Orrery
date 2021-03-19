@@ -12,7 +12,7 @@ import java.util.Scanner; // Import the Scanner class to read text files
 public class ReadFile {
 
 
-    public static String fileReader(String args){
+    public static String[] fileReader(String args){
         try {
             String fileName = "voyager.txt";
             String filePath = "C:\\Java_training\\Orrery\\data\\voyager\\";
@@ -22,12 +22,18 @@ public class ReadFile {
 
             String data = myReader.nextLine();
             myReader.close();
-            return data;
+            return stringToArray(data);
         }
         catch (FileNotFoundException e){
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-        return "failed";
+        return null;
     }
+
+    public static String[] stringToArray(String stringData){
+        String stringArray[] = stringData.split(" ");  // delimiter is a space so we just use " "
+        return stringArray;
+    }
+
 }
