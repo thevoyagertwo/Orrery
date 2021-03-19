@@ -7,8 +7,12 @@ import java.util.Scanner; // Import the Scanner class to read text files
 // Reads files
 // https://www.w3schools.com/java/java_files_read.asp
 
+
+
 public class ReadFile {
-    public static void main(String args){
+
+
+    public static String fileReader(String args){
         try {
             String fileName = "voyager.txt";
             String filePath = "C:\\Java_training\\Orrery\\data\\voyager\\";
@@ -17,12 +21,13 @@ public class ReadFile {
             Scanner myReader = new Scanner(bodyFile);
 
             String data = myReader.nextLine();
-            System.out.print(data);
             myReader.close();
+            return data;
         }
         catch (FileNotFoundException e){
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+        return "failed";
     }
 }
