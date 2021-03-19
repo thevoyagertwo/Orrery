@@ -1,5 +1,6 @@
 import Utility.BodyVariables;
 import Utility.BodyVariablesArray;
+import Utility.ReadFile;
 
 import java.util.Arrays;
 
@@ -29,6 +30,7 @@ public class main {
         System.out.println(Arrays.toString(twoBody.calculateAttractionTwoBody(0, 1)));
         System.out.println(Arrays.toString(twoBody.calculateAttractionTwoBody(1, 0)));
 
+        ReadFile.main("try");
 
     }
 
