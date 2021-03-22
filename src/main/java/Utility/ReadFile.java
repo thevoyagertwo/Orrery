@@ -1,7 +1,13 @@
 package Utility;
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Scanner; // Import the Scanner class to read text files
+import java.util.stream.Stream;
+
+import static java.nio.file.Paths.*;
 
 
 // Reads files
@@ -12,23 +18,26 @@ import java.util.Scanner; // Import the Scanner class to read text files
 public class ReadFile {
 
 
-    public static String[] fileReader(String bodyName){
-        try {
-            String fileName = bodyName + ".txt"; // adds .txt to end of bodyName given
-            String filePath = "C:\\Java_training\\Orrery\\data\\voyager\\";
-            File bodyFile = new File(filePath + fileName);
+    public static  String[] fileReader(String bodyName , int lineNumber){
+        String fileName = bodyName + ".txt"; // adds .txt to end of bodyName given
+        String filePath = "C:\\Java_training\\Orrery\\data\\voyager\\";
+        File bodyFile = new File(filePath + fileName);
 
-            Scanner myReader = new Scanner(bodyFile);
+        try (Stream<String> lines = Files.lines(Paths.get(filePath + fileName))) {
 
-            String data = myReader.nextLine();
-            myReader.close();
+            String data = lines.skip(lineNumber).findFirst().get();
             return stringToArray(data); // calls stringToArray to convert data
+            }
+        catch(IOException e){
+            System.out.println(e);
+            return null;
+
         }
-        catch (FileNotFoundException e){
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-        return null; // returns null if FileNotFoundException is triggered
+//        catch (FileNotFoundException e){
+//            System.out.println("An error occurred.");
+//            e.printStackTrace();
+//        }
+//        return null; // returns null if FileNotFoundException is triggered
     }
 
     public static String[] stringToArray(String stringData){
