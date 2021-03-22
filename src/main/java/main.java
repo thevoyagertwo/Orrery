@@ -64,7 +64,9 @@ public class main {
 
         // tests file reader
         String[] testRead = ReadFile.fileReader("voyager" , 0);
-        System.out.println(testRead[5]);
+        System.out.println(testRead[2]);
+        double testDoublex = Double.parseDouble(testRead[5]);
+        System.out.println(testDoublex);
 
         // sets and gets using vector array method
         twoBody.setBodyVectorArray(0 , new double[] {0.0, 0.0, 1.0, 0.0, 0.0, 1.0});

@@ -41,8 +41,21 @@ public class ReadFile {
     }
 
     public static String[] stringToArray(String stringData){
-        String stringArray[] = stringData.split(" ");  // delimiter is a space so we just use " "
+        // double data is stored from 2 to 7
+        // NOTE as we only care about x,y,z and velocities we are using ,  as the delimiter so all the time data is bunched into one output being [1]
+        String stringArray[] = stringData.split(", ");  // delimiter is a comma space so we just use ", "
         return stringArray;
+    }
+
+    public static double[] stringArrayToDoubleArray(String[] stringArray){
+        //use this to convert the array of strings to an array of doubles which can be used to set values
+        int i = 0;
+        double[] doubleArray = new double[stringArray.length];
+        for (String stringData : stringArray){
+            doubleArray[i] = Double.parseDouble(stringData);
+            i++;
+        }
+        return doubleArray();
     }
 
 }

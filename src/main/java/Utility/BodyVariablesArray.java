@@ -1,6 +1,7 @@
 package Utility;
 
 import java.util.ArrayList;
+import Utility.ReadFile;
 
 public class BodyVariablesArray {
 
@@ -36,6 +37,7 @@ public class BodyVariablesArray {
         }
 
         public void setBodyVector(int body ,double x,double y,double z,double xv,double yv,double zv){
+                // uses setters to set all coords and speeds
                 this.bodies.get(body).setx(x);
                 this.bodies.get(body).sety(y);
                 this.bodies.get(body).setz(z);
@@ -45,6 +47,7 @@ public class BodyVariablesArray {
         }
 
         public void setBodyVectorArray(int body ,double[] xyz){
+                // uses setters to set all coords and speeds
                 this.bodies.get(body).setx(xyz[0]);
                 this.bodies.get(body).sety(xyz[1]);
                 this.bodies.get(body).setz(xyz[2]);
@@ -52,6 +55,20 @@ public class BodyVariablesArray {
                 this.bodies.get(body).setyv(xyz[4]);
                 this.bodies.get(body).setzv(xyz[5]);
         }
+
+        // need to make output of fileReader to be doubles instead of string
+//        public void getSetBodyVectorArray(int body){
+//                // Gets the bodyname from which body number it is
+//                String bodyName = this.bodies.get(body).getName();
+//                double x = ReadFile.fileReader(bodyName, 0);
+//
+//                this.bodies.get(body).setx(x);
+////                this.bodies.get(body).sety(xyz[1]);
+////                this.bodies.get(body).setz(xyz[2]);
+////                this.bodies.get(body).setxv(xyz[3]);
+////                this.bodies.get(body).setyv(xyz[4]);
+////                this.bodies.get(body).setzv(xyz[5]);
+//        }
 
 //        // Uses equation 3 to calculate force array in all three axis
 //        public double calculateAttractionTwoBody(int body1, int body2){
