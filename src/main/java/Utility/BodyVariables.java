@@ -25,7 +25,7 @@ public class BodyVariables {
         return body;
     }
 
-    // Getters and Setters
+
 
     public void setName(String name) {
         this.name = name;

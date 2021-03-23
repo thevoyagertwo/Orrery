@@ -58,6 +58,14 @@ public class ReadFile {
         }
     }
 
+    public static double[] getDoubleArrayVector(String bodyName , int lineNumber){
+        // gets string array of data
+        String[] stringArray = fileReader(bodyName , lineNumber);
+        // converts to a double array
+        double[] doubleArray = stringArrayToDoubleArray(stringArray);
+        return doubleArray;
+
+    }
 
 }
 

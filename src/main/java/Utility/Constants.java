@@ -2,11 +2,30 @@ package Utility;
 
 public class Constants {
     public static double g = 6.6743015e-11;
-    public static String[] solarSystemNames = new String[] {"sun","mercury","venus","earth","mars","jupiter","saturn","uranus","neptune","pluto"};
+    public static String[] solarSystemNames = new String[] {"sun","mercury","venus","earth","mars","jupiter","saturn","uranus","neptune"};
 
 
     //https://nssdc.gsfc.nasa.gov/planetary/factsheet/
-    public static void setNameAndMass (String bodyName, BodyVariables body){
+    public static void setInitialValues(String bodyName, BodyVariables body ){
+
+        //    // tests file reader
+//    String[] testRead = ReadFile.fileReader("voyager" , 0);
+//        System.out.println(testRead[7]+ "1 I am a string below me is a double");
+//    double testDoublex = Double.parseDouble(testRead[2] );
+//        System.out.println(testDoublex + 1);
+//
+//    // tests ReadFile stringArrayToDoubleArray
+//    double[] testReadDouble = ReadFile.stringArrayToDoubleArray(testRead);
+//        System.out.println(testReadDouble[0]);
+//        System.out.println(testReadDouble.length);
+//
+//
+//    // sets and gets using vector array method
+//        solarSystem.setBodyVectorArray(0 , new double[] {0.0, 0.0, 1.0, 0.0, 0.0, 1.0});
+//        solarSystem.setBodyVectorArray(0 , testReadDouble);
+//        System.out.println(solarSystem.bodies.get(0).getz());
+
+
         if (bodyName == "sun"){
             body.setName("sun");
             body.setMass(1.9891e+30);
@@ -51,6 +70,7 @@ public class Constants {
         } else{
             System.out.println("this body name is not supported. Try all lowercase");
         }
+
 
     }
 

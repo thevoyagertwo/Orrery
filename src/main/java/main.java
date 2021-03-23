@@ -1,39 +1,27 @@
 import Utility.BodyVariables;
 import Utility.BodyVariablesArray;
-import Utility.ReadFile;
 import Utility.Constants;
-
-import java.util.Arrays;
+import Utility.ReadFile;
 
 
 public class main {
 
     public static void main(String[] args) {
 
-        BodyVariables help = BodyVariables.TestBody();
-
-
-
-        System.out.println(help.getName());
-        help.setName("try");
-        System.out.println(help.getName());
+        int lineNumber = 0;
 
         // initialises solarSystem (empty)
         BodyVariablesArray solarSystem = new BodyVariablesArray(Constants.solarSystemNames.length);
 
         // fills solarSystem with names and masses
-        for (int i = 0 ; i<10 ; i++){
-            Constants.setNameAndMass(Constants.solarSystemNames[i],solarSystem.bodies.get(i));
+        for (int i = 0 ; i<Constants.solarSystemNames.length ; i++){
+            Constants.setInitialValues(Constants.solarSystemNames[i],solarSystem.bodies.get(i));
+            solarSystem.setBodyVectorArray( i , ReadFile.getDoubleArrayVector(Constants.solarSystemNames[i], lineNumber) );
         }
 
+    }
 
-        System.out.println(solarSystem.bodies.get(0).getMass() + " getMass");
-
-        System.out.println(solarSystem.calculateDistance(0 , 1));
-
-
-
-
+}
 
 
         // Tests:
@@ -63,11 +51,5 @@ public class main {
 
          */
 
-
-
-
-    }
-
-}
 
 
