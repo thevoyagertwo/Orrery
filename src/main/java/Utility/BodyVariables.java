@@ -3,10 +3,11 @@ import java.util.ArrayList;
 
 public class BodyVariables {
     private String name;
+    private int nasaID;
     private double mass, x, y, z, xv, yv ,zv;
 
 
-    public BodyVariables(String name,double mass,double x,double y,double z,double xv,double yv,double zv) {
+    public BodyVariables(String name,double mass,int nasaID,double x,double y,double z,double xv,double yv,double zv) {
         this.name = name;
         this.mass = mass;
         this.x    = x;
@@ -19,7 +20,7 @@ public class BodyVariables {
     }
 
     public static BodyVariables TestBody() {
-        BodyVariables body = new BodyVariables("planet1",1.0,1.0,0.0,0.0,0.0,1.0,0.0);
+        BodyVariables body = new BodyVariables("planet1",1.0,0,1.0,0.0,0.0,0.0,1.0,0.0);
 
         return body;
     }
@@ -38,6 +39,13 @@ public class BodyVariables {
     }
     public double getMass() {
         return mass;
+    }
+
+    public void setNasaID(int nasaID){
+        this.nasaID = nasaID;
+    }
+    public int getNasaID(){
+        return nasaID;
     }
 
     public void setx(double x){

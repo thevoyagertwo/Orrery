@@ -18,8 +18,10 @@ public class main {
         help.setName("try");
         System.out.println(help.getName());
 
+        // initialises solarSystem (empty)
+        BodyVariablesArray solarSystem = new BodyVariablesArray(Constants.solarSystemNames.length);
 
-        BodyVariablesArray solarSystem = new BodyVariablesArray(10);
+        // fills solarSystem with names and masses
         for (int i = 0 ; i<10 ; i++){
             Constants.setNameAndMass(Constants.solarSystemNames[i],solarSystem.bodies.get(i));
         }
