@@ -19,11 +19,13 @@ public class BodyVariablesArray {
 
         public ArrayList<BodyVariables> bodies;
 
-        public BodyVariablesArray() {
+        public BodyVariablesArray(int numberOfBodies) {
                 bodies = new ArrayList<BodyVariables>();
-
-                bodies.add(new BodyVariables("planet1",1.0, 1.0 , 0.0 , 0.0 , 0.0 ,1.0 ,0.0) );
-                bodies.add(new BodyVariables("planet2",1.0, -2.0, 0.0 , 0.0 , 0.0 ,-1.0,0.0) );
+                for (int i = 0; i<numberOfBodies; i++){
+                        bodies.add(new BodyVariables("planet" + Integer.toString(i),1.0, 0.0 , 0.0 , 0.0 , 0.0 ,0.0 ,0.0) );
+                }
+//                bodies.add(new BodyVariables("planet1",1.0, 1.0 , 0.0 , 0.0 , 0.0 ,1.0 ,0.0) );
+//                bodies.add(new BodyVariables("planet2",1.0, -2.0, 0.0 , 0.0 , 0.0 ,-1.0,0.0) );
 
         }
 
