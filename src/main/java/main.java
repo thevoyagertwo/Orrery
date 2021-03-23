@@ -1,6 +1,7 @@
 import Utility.BodyVariables;
 import Utility.BodyVariablesArray;
 import Utility.ReadFile;
+import Utility.Constants;
 
 import java.util.Arrays;
 
@@ -18,12 +19,23 @@ public class main {
         System.out.println(help.getName());
 
 
-        BodyVariablesArray twoBody = new BodyVariablesArray(2);
+        BodyVariablesArray solarSystem = new BodyVariablesArray(10);
+        for (int i = 0 ; i<10 ; i++){
+            Constants.setNameAndMass(Constants.solarSystemNames[i],solarSystem.bodies.get(i));
+        }
 
 
-        System.out.println(twoBody.bodies.get(0).getMass() + " getMass");
+        System.out.println(solarSystem.bodies.get(0).getMass() + " getMass");
 
-        System.out.println(twoBody.calculateDistance(0 , 1));
+        System.out.println(solarSystem.calculateDistance(0 , 1));
+
+
+
+
+
+
+        // Tests:
+        /*
 
         // tests file reader
         String[] testRead = ReadFile.fileReader("voyager" , 0);
@@ -38,15 +50,16 @@ public class main {
 
 
         // sets and gets using vector array method
-        twoBody.setBodyVectorArray(0 , new double[] {0.0, 0.0, 1.0, 0.0, 0.0, 1.0});
-        twoBody.setBodyVectorArray(0 , testReadDouble);
-        System.out.println(twoBody.bodies.get(0).getz());
+        solarSystem.setBodyVectorArray(0 , new double[] {0.0, 0.0, 1.0, 0.0, 0.0, 1.0});
+        solarSystem.setBodyVectorArray(0 , testReadDouble);
+        System.out.println(solarSystem.bodies.get(0).getz());
 
 
         // should be opposite sign as they calculate 0's force on 1 then vice versa
-        System.out.println(Arrays.toString(twoBody.calculateAttractionTwoBody(0, 1)));
-        System.out.println(Arrays.toString(twoBody.calculateAttractionTwoBody(1, 0)));
+        System.out.println(Arrays.toString(solarSystem.calculateAttractionTwoBody(0, 1)));
+        System.out.println(Arrays.toString(solarSystem.calculateAttractionTwoBody(1, 0)));
 
+         */
 
 
 
