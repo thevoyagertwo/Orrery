@@ -64,12 +64,19 @@ public class main {
 
         // tests file reader
         String[] testRead = ReadFile.fileReader("voyager" , 0);
-        System.out.println(testRead[2]);
-        double testDoublex = Double.parseDouble(testRead[5]);
-        System.out.println(testDoublex);
+        System.out.println(testRead[7]+ "1 I am a string below me is a double");
+        double testDoublex = Double.parseDouble(testRead[2] );
+        System.out.println(testDoublex + 1);
+
+        // tests ReadFile stringArrayToDoubleArray
+        double[] testReadDouble = ReadFile.stringArrayToDoubleArray(testRead);
+        System.out.println(testReadDouble[0]);
+        System.out.println(testReadDouble.length);
+
 
         // sets and gets using vector array method
         twoBody.setBodyVectorArray(0 , new double[] {0.0, 0.0, 1.0, 0.0, 0.0, 1.0});
+        twoBody.setBodyVectorArray(0 , testReadDouble);
         System.out.println(twoBody.bodies.get(0).getz());
 
 
