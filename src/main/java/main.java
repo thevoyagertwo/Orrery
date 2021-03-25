@@ -2,6 +2,7 @@ import Utility.BodyVariables;
 import Utility.BodyVariablesArray;
 import Utility.Constants;
 import Utility.ReadFile;
+import Graphics.Draw;
 
 
 public class main {
@@ -18,6 +19,8 @@ public class main {
             Constants.setInitialValues(Constants.solarSystemNames[i],solarSystem.bodies.get(i));
             solarSystem.setBodyVectorArray( i , ReadFile.getDoubleArrayVector(Constants.solarSystemNames[i], lineNumber) );
         }
+
+
 
     }
 
