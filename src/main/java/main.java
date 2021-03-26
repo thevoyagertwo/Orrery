@@ -1,8 +1,7 @@
-import Utility.BodyVariables;
 import Utility.BodyVariablesArray;
 import Utility.Constants;
 import Utility.ReadFile;
-import Graphics.Draw;
+import Graphics.Display;
 
 
 public class main {
@@ -21,6 +20,7 @@ public class main {
         }
 
 
+        new Display("Universe",1000,1000);
 
     }
 
