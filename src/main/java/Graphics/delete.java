@@ -3,7 +3,7 @@ package Graphics;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 
-public class Render {
+public class delete {
 
     public static void render(Display display, Graphics g){
         BufferStrategy bs;

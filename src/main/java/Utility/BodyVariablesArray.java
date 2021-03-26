@@ -14,7 +14,6 @@ public class BodyVariablesArray {
 
 
         // Gravitational Constant
-        public double g = 1.0;
 
         public ArrayList<BodyVariables> bodies;
 
@@ -70,19 +69,20 @@ public class BodyVariablesArray {
                 double distance3 = Math.pow(this.calculateDistance(body1,body2),3);
 
                 // Equation 3    G                          m              (     r_x1       -     r_x2        )   / r^3
-                attraction[0] = (g* body2var.getMass() * (body1var.getx() - body2var.getx() ) ) / distance3;
-                attraction[1] = (g* body2var.getMass() * (body1var.gety() - body2var.gety() ) ) / distance3;
-                attraction[2] = (g* body2var.getMass() * (body1var.getz() - body2var.getz() ) ) / distance3;
+                attraction[0] = (Constants.g* body2var.getMass() * (body1var.getx() - body2var.getx() ) ) / distance3;
+                attraction[1] = (Constants.g* body2var.getMass() * (body1var.gety() - body2var.gety() ) ) / distance3;
+                attraction[2] = (Constants.g* body2var.getMass() * (body1var.getz() - body2var.getz() ) ) / distance3;
 
                 return attraction;
         }
 
         public void applyAttractionAllBody(int body1 , int timeStep){
                 double[] xyz = this.bodies.get(body1).getxyz();
+                System.out.println(xyz[0]+ " " + xyz[3]+ " " +this.bodies.get(body1).getName() );
                 // Equation is x = x + xv * time?
-                xyz[0] += xyz[3]*timeStep;
-                xyz[1] += xyz[4]*timeStep;
-                xyz[2] += xyz[5]*timeStep;
+                xyz[0] += xyz[3];
+                xyz[1] += xyz[4];
+                xyz[2] += xyz[5];
                 // stores BodyVariables for easier use
                 BodyVariables body1var = this.bodies.get(body1);
                 for (int body2=0; body2<Constants.solarSystemNames.length ; body2++) {
@@ -94,14 +94,17 @@ public class BodyVariablesArray {
                         // distance^3
                         double distance3 = Math.pow(this.calculateDistance(body1, body2), 3);
 
+                        System.out.println(body1var.getName() + " " + body2var.getName() + " Distance = " + this.calculateDistance(body1, body2));
+
                         // Equation 3    G    M                      m              (     r_x1       -     r_x2        )   / r^3
-                        xyz[3] += (g * body2var.getMass() * (body1var.getx() - body2var.getx())) / distance3;
-                        xyz[4] += (g * body2var.getMass() * (body1var.gety() - body2var.gety())) / distance3;
-                        xyz[5] += (g * body2var.getMass() * (body1var.getz() - body2var.getz())) / distance3;
+                        xyz[3] += (Constants.g * body2var.getMass() * (body1var.getx() - body2var.getx())) / distance3;
+                        xyz[4] += (Constants.g * body2var.getMass() * (body1var.gety() - body2var.gety())) / distance3;
+                        xyz[5] += (Constants.g * body2var.getMass() * (body1var.getz() - body2var.getz())) / distance3;
 
                 }
 
                 this.setBodyVectorArray(body1, xyz);
+
 
         }
 }

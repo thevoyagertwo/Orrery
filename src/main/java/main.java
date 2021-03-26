@@ -1,13 +1,17 @@
-import Graphics.Render;
 import Utility.BodyVariablesArray;
 import Utility.Constants;
 import Utility.ReadFile;
 import Graphics.Display;
 
 import java.awt.*;
+import java.awt.image.BufferStrategy;
 
 
 public class main {
+    private Display display;
+    private BufferStrategy bs;
+    private Graphics g;
+
 
     public static void main(String[] args) {
 
@@ -22,18 +26,26 @@ public class main {
             solarSystem.setBodyVectorArray( i , ReadFile.getDoubleArrayVector(Constants.solarSystemNames[i], lineNumber) );
         }
 
+        // start display
+        Display display = new Display("Universe",1000,1000);
+
         int time = 0;
         int timeStep = 86400; // 1 day is 86400s
-        int timeEnd  = 31_557_600;  // 1 year is 31_557_600s
+        int timeEnd  = 10 * 31_557_600;  // 1 year is 31_557_600s
 
         while(time < timeEnd){
             for (int i = 0 ; i<Constants.solarSystemNames.length ; i++) {
                 solarSystem.applyAttractionAllBody(i,timeStep);
 
             }
+            render();
             System.out.println(solarSystem.bodies.get(3).getx());
             time +=timeStep;
         }
+
+
+
+
 
 
 //        Display display = new Display("Universe",1000,1000);
@@ -44,6 +56,26 @@ public class main {
 //        // Probably use a running method like in https://youtu.be/Idb6-Zfdq2Q?list=PLah6faXAgguMnTBs3JnEJY0shAc18XYQZ&t=366
 //        Render.render(display , g);
     }
+
+
+    private void render(){
+        BufferStrategy bs;
+
+        bs = display.getCanvas().getBufferStrategy();
+        if (bs == null) {
+            display.getCanvas().createBufferStrategy(3);
+            return;
+        }
+        g = bs.getDrawGraphics();
+        // Draw here
+        g.fillOval(0, 0, 1000, 1000);
+        g.setColor(Color.red);
+        // End drawing
+
+        bs.show();
+        g.dispose();
+    }
+
 
 }
 
