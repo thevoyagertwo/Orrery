@@ -90,6 +90,18 @@ public class BodyVariables {
         return this.zv;
     }
 
+    public double[] getxyz(){
+        double [] xyz = new double[6] ;
+        xyz[0] = this.x;
+        xyz[1] = this.y;
+        xyz[2] = this.z;
+        xyz[3] = this.xv;
+        xyz[4] = this.yv;
+        xyz[5] = this.zv;
+        return xyz;
+    }
+
+
 
 }
 

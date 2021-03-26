@@ -1,7 +1,6 @@
 package Utility;
 
 import java.util.ArrayList;
-import Utility.ReadFile;
 
 public class BodyVariablesArray {
 
@@ -58,7 +57,57 @@ public class BodyVariablesArray {
                 this.bodies.get(body).setzv(xyz[5]);
         }
 
-        // need to make output of fileReader to be doubles instead of string
+
+        // Uses equation 3 to calculate force array in all three axis
+        public double[] calculateAttractionTwoBody(int body1, int body2){
+                double[] attraction = new double[3];
+
+                // stores BodyVariables for easier use
+                BodyVariables body1var = this.bodies.get(body1);
+                BodyVariables body2var = this.bodies.get(body2);
+
+                // distance^3
+                double distance3 = Math.pow(this.calculateDistance(body1,body2),3);
+
+                // Equation 3    G                          m              (     r_x1       -     r_x2        )   / r^3
+                attraction[0] = (g* body2var.getMass() * (body1var.getx() - body2var.getx() ) ) / distance3;
+                attraction[1] = (g* body2var.getMass() * (body1var.gety() - body2var.gety() ) ) / distance3;
+                attraction[2] = (g* body2var.getMass() * (body1var.getz() - body2var.getz() ) ) / distance3;
+
+                return attraction;
+        }
+
+        public void applyAttractionAllBody(int body1 , int timeStep){
+                double[] xyz = this.bodies.get(body1).getxyz();
+                // Equation is x = x + xv * time?
+                xyz[0] += xyz[3]*timeStep;
+                xyz[1] += xyz[4]*timeStep;
+                xyz[2] += xyz[5]*timeStep;
+                // stores BodyVariables for easier use
+                BodyVariables body1var = this.bodies.get(body1);
+                for (int body2=0; body2<Constants.solarSystemNames.length ; body2++) {
+                        if (body2 == body1) { // skips doing itself
+                                continue;
+                        }
+                        BodyVariables body2var = this.bodies.get(body2);
+
+                        // distance^3
+                        double distance3 = Math.pow(this.calculateDistance(body1, body2), 3);
+
+                        // Equation 3    G    M                      m              (     r_x1       -     r_x2        )   / r^3
+                        xyz[3] += (g * body2var.getMass() * (body1var.getx() - body2var.getx())) / distance3;
+                        xyz[4] += (g * body2var.getMass() * (body1var.gety() - body2var.gety())) / distance3;
+                        xyz[5] += (g * body2var.getMass() * (body1var.getz() - body2var.getz())) / distance3;
+
+                }
+
+                this.setBodyVectorArray(body1, xyz);
+
+        }
+}
+
+
+// need to make output of fileReader to be doubles instead of string
 //        public void getSetBodyVectorArray(int body){
 //                // Gets the bodyname from which body number it is
 //                String bodyName = this.bodies.get(body).getName();
@@ -90,26 +139,4 @@ public class BodyVariablesArray {
 //
 //                return  g; //this.bodies.get(body1).getMass();
 //        }
-
-        // Uses equation 3 to calculate force array in all three axis
-        public double[] calculateAttractionTwoBody(int body1, int body2){
-                double[] attraction = new double[3];
-
-                // stores BodyVariables for easier use
-                BodyVariables body1var = this.bodies.get(body1);
-                BodyVariables body2var = this.bodies.get(body2);
-
-                // distance^3
-                double distance3 = Math.pow(this.calculateDistance(body1,body2),3);
-
-                // Equation 3    GG    M                      m              (     r_x1       -     r_x2        )   / r^3
-                attraction[0] = (g*body1var.getMass() * body2var.getMass() * (body1var.getx() - body2var.getx() ) ) / distance3;
-                attraction[1] = (g*body1var.getMass() * body2var.getMass() * (body1var.gety() - body2var.gety() ) ) / distance3;
-                attraction[2] = (g*body1var.getMass() * body2var.getMass() * (body1var.getz() - body2var.getz() ) ) / distance3;
-
-                return attraction;
-        }
-}
-
-
 

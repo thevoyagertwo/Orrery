@@ -1,7 +1,10 @@
+import Graphics.Render;
 import Utility.BodyVariablesArray;
 import Utility.Constants;
 import Utility.ReadFile;
 import Graphics.Display;
+
+import java.awt.*;
 
 
 public class main {
@@ -19,9 +22,27 @@ public class main {
             solarSystem.setBodyVectorArray( i , ReadFile.getDoubleArrayVector(Constants.solarSystemNames[i], lineNumber) );
         }
 
+        int time = 0;
+        int timeStep = 86400; // 1 day is 86400s
+        int timeEnd  = 31_557_600;  // 1 year is 31_557_600s
 
-        new Display("Universe",1000,1000);
+        while(time < timeEnd){
+            for (int i = 0 ; i<Constants.solarSystemNames.length ; i++) {
+                solarSystem.applyAttractionAllBody(i,timeStep);
 
+            }
+            System.out.println(solarSystem.bodies.get(3).getx());
+            time +=timeStep;
+        }
+
+
+//        Display display = new Display("Universe",1000,1000);
+//        display.getCanvas().createBufferStrategy(3);
+//        Graphics g = null;
+//
+//
+//        // Probably use a running method like in https://youtu.be/Idb6-Zfdq2Q?list=PLah6faXAgguMnTBs3JnEJY0shAc18XYQZ&t=366
+//        Render.render(display , g);
     }
 
 }

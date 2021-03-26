@@ -3,5 +3,6 @@ See if 10,199,.....999 nasaID works for the Solar System Barycenter
 
 Maybe use the GM value you get from Horizons instead of just having the mass (will save on calculations and potentially more accurate)
 
+consider time of each step as if we are dealing with km/s the time step is 1 second which is ouch on speed
 
 

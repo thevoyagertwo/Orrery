@@ -37,6 +37,10 @@ public class Display extends Canvas{
         canvas.setBackground(ColorUIResource.white);
     }
 
+    public Canvas getCanvas(){
+        return canvas;
+    }
+
 
 
 

@@ -1,12 +1,14 @@
 Utility/ReadFile.java
  Utility.ReadFile
+Graphics/Display.java
+ Graphics.Display
+Graphics/Render.java
+ Graphics.Render
 Utility/BodyVariables.java
  Utility.BodyVariables
-Utility/BodyVariablesArray.java
- Utility.BodyVariablesArray
 Utility/Constants.java
  Utility.Constants
 main.java
  main
-Graphics/Display.java
- Graphics.Display
+Utility/BodyVariablesArray.java
+ Utility.BodyVariablesArray
