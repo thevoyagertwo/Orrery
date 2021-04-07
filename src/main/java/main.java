@@ -76,12 +76,15 @@ public class main implements Runnable{
 
     private void render() {
         bs = display.getCanvas().getBufferStrategy();
-        if (bs == null) {
-            display.getCanvas().createBufferStrategy(3);
-            return;
-        }
         g = bs.getDrawGraphics();
+//        if (bs == null) {
+//            display.getCanvas().createBufferStrategy(3);
+//            return;
+//        }
+//        g = bs.getDrawGraphics();
         // Draw here
+        g.drawString("This is some text placed in the top left corner.", 5, 15);
+
         g.fillOval(0, 0, 1000, 1000);
         g.setColor(Color.red);
         // End drawing

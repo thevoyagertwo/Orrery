@@ -2,15 +2,17 @@ Utility/ReadFile.java
  Utility.ReadFile
 Graphics/delete.java
  Graphics.delete
-Utility/BodyVariables.java
- Utility.BodyVariables
-Utility/Constants.java
- Utility.Constants
-Utility/BodyVariablesArray.java
- Utility.BodyVariablesArray
-Graphics/Display.java
- Graphics.Display
 Launcher.java
  Launcher
 main.java
  main
+Utility/BodyVariablesArray.java
+ Utility.BodyVariablesArray
+Utility/BodyVariables.java
+ Utility.BodyVariables
+Graphics/Display.java
+ Graphics.Display
+Utility/Constants.java
+ Utility.Constants
+Test/Test_Graphics.java
+ Test.Test_Graphics
