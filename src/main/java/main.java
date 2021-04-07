@@ -7,11 +7,12 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 
-public class main {
+public class main implements Runnable{
     private Display display;
     private BufferStrategy bs;
     private Graphics g;
-
+    private boolean running = false;
+    private Thread thread;
 
     public static void main(String[] args) {
 
@@ -21,31 +22,24 @@ public class main {
         BodyVariablesArray solarSystem = new BodyVariablesArray(Constants.solarSystemNames.length);
 
         // fills solarSystem with names and masses
-        for (int i = 0 ; i<Constants.solarSystemNames.length ; i++){
-            Constants.setInitialValues(Constants.solarSystemNames[i],solarSystem.bodies.get(i));
-            solarSystem.setBodyVectorArray( i , ReadFile.getDoubleArrayVector(Constants.solarSystemNames[i], lineNumber) );
+        for (int i = 0; i < Constants.solarSystemNames.length; i++) {
+            Constants.setInitialValues(Constants.solarSystemNames[i], solarSystem.bodies.get(i));
+            solarSystem.setBodyVectorArray(i, ReadFile.getDoubleArrayVector(Constants.solarSystemNames[i], lineNumber));
         }
 
-        // start display
-        Display display = new Display("Universe",1000,1000);
 
         int time = 0;
         int timeStep = 86400; // 1 day is 86400s
-        int timeEnd  = 10 * 31_557_600;  // 1 year is 31_557_600s
+        int timeEnd = 10 * 31_557_600;  // 1 year is 31_557_600s
 
-        while(time < timeEnd){
-            for (int i = 0 ; i<Constants.solarSystemNames.length ; i++) {
-                solarSystem.applyAttractionAllBody(i,timeStep);
+        while (time < timeEnd) {
+            for (int i = 0; i < Constants.solarSystemNames.length; i++) {
+                solarSystem.applyAttractionAllBody(i, timeStep);
 
             }
-            render();
             System.out.println(solarSystem.bodies.get(3).getx());
-            time +=timeStep;
+            time += timeStep;
         }
-
-
-
-
 
 
 //        Display display = new Display("Universe",1000,1000);
@@ -57,10 +51,30 @@ public class main {
 //        Render.render(display , g);
     }
 
+    public synchronized void start() {
+        if (running)
+            return;
+        running = true;
+        thread = new Thread(this);
+        thread.start();
+    }
 
-    private void render(){
-        BufferStrategy bs;
+    public void run() {
+        init();
 
+        while (running) {
+            render();
+        }
+
+        stop();
+
+    }
+
+    private void init(){
+        Display display = new Display("Universe", 1000, 1000);
+    }
+
+    private void render() {
         bs = display.getCanvas().getBufferStrategy();
         if (bs == null) {
             display.getCanvas().createBufferStrategy(3);
@@ -76,7 +90,17 @@ public class main {
         g.dispose();
     }
 
+    public synchronized void stop() {
+        if (!running)
+            return;
+        running = false;
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
+    }
 }
 
 
