@@ -35,8 +35,9 @@ public class main {
                 solarSystem.applyAttractionAllBody(i,timeStep);
 
             }
-            display.render();
-
+            if (time % (timeStep*1)==0) {
+                display.render();
+            }
             System.out.println(solarSystem.bodies.get(3).getx());
             time +=timeStep;
         }

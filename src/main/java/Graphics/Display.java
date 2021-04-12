@@ -38,7 +38,7 @@ public class Display extends Canvas{
         frame.add(canvas);
         frame.pack();
 
-        canvas.setBackground(ColorUIResource.white);
+        canvas.setBackground(ColorUIResource.RED);
     }
 
     public Canvas getCanvas(){
@@ -47,27 +47,27 @@ public class Display extends Canvas{
 
 
     public void render(){
-        BufferStrategy bs;
 
         bs = this.getCanvas().getBufferStrategy();
         if (bs == null) {
-            this.getCanvas().createBufferStrategy(3);
+            this.getCanvas().createBufferStrategy(2);
             return;
         }
+
         g = bs.getDrawGraphics();
         // Draw here
+        g.setColor(Color.BLUE);
         g.fillOval(0, 0, 1000, 500);
-        g.setColor(Color.red);
         // End drawing
 
         bs.show();
         g.dispose();
     }
 
-    public void paint(Graphics g){
-        g.fillOval(100,100,50,50);
-        g.setColor(Color.red);
-
-    }
+//    public void paint(Graphics g){
+//        g.fillOval(100,100,50,50);
+//        g.setColor(Color.red);
+//
+//    }
 
 }
