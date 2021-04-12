@@ -8,9 +8,6 @@ import java.awt.image.BufferStrategy;
 
 
 public class main {
-    private Display display;
-    private BufferStrategy bs;
-    private Graphics g;
 
 
     public static void main(String[] args) {
@@ -38,7 +35,8 @@ public class main {
                 solarSystem.applyAttractionAllBody(i,timeStep);
 
             }
-            render();
+            display.render();
+
             System.out.println(solarSystem.bodies.get(3).getx());
             time +=timeStep;
         }
@@ -58,23 +56,6 @@ public class main {
     }
 
 
-    private void render(){
-        BufferStrategy bs;
-
-        bs = display.getCanvas().getBufferStrategy();
-        if (bs == null) {
-            display.getCanvas().createBufferStrategy(3);
-            return;
-        }
-        g = bs.getDrawGraphics();
-        // Draw here
-        g.fillOval(0, 0, 1000, 1000);
-        g.setColor(Color.red);
-        // End drawing
-
-        bs.show();
-        g.dispose();
-    }
 
 
 }

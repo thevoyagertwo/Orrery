@@ -1,5 +1,6 @@
 package Graphics;
 import java.awt.*;
+import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 import javax.swing.plaf.ColorUIResource;
 
@@ -7,6 +8,9 @@ public class Display extends Canvas{
 
     private JFrame frame;
     private Canvas canvas;
+    private Display display;
+    private BufferStrategy bs;
+    private Graphics g;
 
     private String title;
     private int width, height;
@@ -42,7 +46,23 @@ public class Display extends Canvas{
     }
 
 
+    public void render(){
+        BufferStrategy bs;
 
+        bs = this.getCanvas().getBufferStrategy();
+        if (bs == null) {
+            this.getCanvas().createBufferStrategy(3);
+            return;
+        }
+        g = bs.getDrawGraphics();
+        // Draw here
+        g.fillOval(0, 0, 1000, 500);
+        g.setColor(Color.red);
+        // End drawing
+
+        bs.show();
+        g.dispose();
+    }
 
     public void paint(Graphics g){
         g.fillOval(100,100,50,50);
