@@ -28,7 +28,7 @@ public class main {
 
         int time = 0;
         int timeStep = 86400; // 1 day is 86400s
-        int timeEnd  = 10 * 31_557_600;  // 1 year is 31_557_600s
+        int timeEnd  = 50 * 31_557_600;  // 1 year is 31_557_600s
 
         while(time < timeEnd){
             for (int i = 0 ; i<Constants.solarSystemNames.length ; i++) {
@@ -36,9 +36,10 @@ public class main {
 
             }
             if (time % (timeStep*1)==0) {
-                display.render();
+                display.renderSolarSystem(solarSystem);
+//                display.render();
             }
-            System.out.println(solarSystem.bodies.get(3).getx());
+//            System.out.println(solarSystem.bodies.get(3).getx());
             time +=timeStep;
         }
 

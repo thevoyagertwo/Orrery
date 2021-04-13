@@ -78,7 +78,11 @@ public class BodyVariablesArray {
 
         public void applyAttractionAllBody(int body1 , int timeStep){
                 double[] xyz = this.bodies.get(body1).getxyz();
+
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 System.out.println(xyz[0]+ " " + xyz[3]+ " " +this.bodies.get(body1).getName() );
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
                 // Equation is x = x + xv * time?
                 xyz[0] += xyz[3];
                 xyz[1] += xyz[4];
@@ -97,9 +101,9 @@ public class BodyVariablesArray {
                         System.out.println(body1var.getName() + " " + body2var.getName() + " Distance = " + this.calculateDistance(body1, body2));
 
                         // Equation 3    G    M                      m              (     r_x1       -     r_x2        )   / r^3
-                        xyz[3] += (Constants.g * body2var.getMass() * (body1var.getx() - body2var.getx())) / distance3;
-                        xyz[4] += (Constants.g * body2var.getMass() * (body1var.gety() - body2var.gety())) / distance3;
-                        xyz[5] += (Constants.g * body2var.getMass() * (body1var.getz() - body2var.getz())) / distance3;
+                        xyz[3] += -(Constants.g * body2var.getMass() * (body1var.getx() - body2var.getx())) / distance3;
+                        xyz[4] += -(Constants.g * body2var.getMass() * (body1var.gety() - body2var.gety())) / distance3;
+                        xyz[5] += -(Constants.g * body2var.getMass() * (body1var.getz() - body2var.getz())) / distance3;
 
                 }
 
