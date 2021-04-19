@@ -111,6 +111,12 @@ public class Display extends Canvas{
             case "sun":
                 bodyColor = Color.orange;
                 break;
+            case "mercury":
+                bodyColor = Color.red;
+                break;
+            case "venus":
+                bodyColor = Color.CYAN;
+                break;
             case "earth":
                 bodyColor = Color.blue;
                 break;

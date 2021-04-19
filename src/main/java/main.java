@@ -34,7 +34,7 @@ public class main {
         int time = 0;
         int timeStep = 86400; // 1 day is 86400s
 //        int timeEnd  = 50 * 31_557_600;  // 1 year is 31_557_600s
-        int timeEnd  = 4000 * 86400;  // 1 year is 31_557_600s
+        int timeEnd  = 20000 * 86400;  // 1 year is 31_557_600s
 
         while(time < timeEnd){
             for (int i = 0 ; i<Constants.solarSystemNames.length ; i++) {
