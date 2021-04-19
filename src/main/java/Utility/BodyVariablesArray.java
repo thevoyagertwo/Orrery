@@ -104,9 +104,12 @@ public class BodyVariablesArray {
                         System.out.println(body1var.getName() + " " + xyz[3]+ " " + -(Constants.g * body2var.getMass() * (body1var.getx() - body2var.getx())) / distance3);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                         // Equation 3    G    M                      (     r_x1       -     r_x2        )   / r^3
-                        xyz[3] += -(Constants.g * body2var.getMass() * (body1var.getx() - body2var.getx())) / distance3;
-                        xyz[4] += -(Constants.g * body2var.getMass() * (body1var.gety() - body2var.gety())) / distance3;
-                        xyz[5] += -(Constants.g * body2var.getMass() * (body1var.getz() - body2var.getz())) / distance3;
+//                        xyz[3] += -(Constants.g * body2var.getMass() * (body1var.getx() - body2var.getx())) / distance3;
+//                        xyz[4] += -(Constants.g * body2var.getMass() * (body1var.gety() - body2var.gety())) / distance3;
+//                        xyz[5] += -(Constants.g * body2var.getMass() * (body1var.getz() - body2var.getz())) / distance3;
+                        xyz[3] += -(Constants.g * body2var.getMass() * (body1var.getx() )) / distance3;
+                        xyz[4] += -(Constants.g * body2var.getMass() * (body1var.gety() )) / distance3;
+                        xyz[5] += -(Constants.g * body2var.getMass() * (body1var.getz() )) / distance3;
 
                 }
 

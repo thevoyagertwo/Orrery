@@ -67,7 +67,7 @@ public class Display extends Canvas{
         g.dispose();
     }
 
-    public void renderBody(double[] xyz){
+    public void renderBody(double[] xyz, String bodyName){
         int pixelx,pixely;
         double maxDistance = 1e+9 ; // used as maximum distance to find the pixel the body should be at, *2 as its +x, -x as well?
 // sets buffer strategy
@@ -82,7 +82,7 @@ public class Display extends Canvas{
 
         g = bs.getDrawGraphics();
         // Draw here
-        g.setColor(Color.BLUE);
+        g.setColor(bodyColorPicker(bodyName));
         g.fillOval(pixelx, pixely, 5, 5);
         // End drawing
 
@@ -93,15 +93,34 @@ public class Display extends Canvas{
 
     public void renderSolarSystem(BodyVariablesArray solarSystem) {
         double[] xyz; // stores xyz vx,vy,vz data
+        String bodyName;
 
         for (int body = 0; body< Constants.solarSystemNames.length ; body++){
             xyz =  solarSystem.bodies.get(body).getxyz();
-            renderBody(xyz);
+            bodyName = solarSystem.bodies.get(body).getName();
+            renderBody(xyz,bodyName);
         }
 
 
     }
 
+    public Color bodyColorPicker(String bodyName){
+        Color bodyColor;
+        // {"sun","mercury","venus","earth","mars","jupiter","saturn","uranus","neptune"};
+        switch (bodyName){
+            case "sun":
+                bodyColor = Color.orange;
+                break;
+            case "earth":
+                bodyColor = Color.blue;
+                break;
+            default:
+                bodyColor = Color.gray;
+                break;
+        }
+
+        return bodyColor;
+    }
 
 
 }

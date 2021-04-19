@@ -7,6 +7,8 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.util.Arrays;
 
+import static java.util.concurrent.TimeUnit.*;
+
 
 public class main {
 
@@ -32,16 +34,25 @@ public class main {
         int time = 0;
         int timeStep = 86400; // 1 day is 86400s
 //        int timeEnd  = 50 * 31_557_600;  // 1 year is 31_557_600s
-        int timeEnd  = 200 * 86400;  // 1 year is 31_557_600s
+        int timeEnd  = 4000 * 86400;  // 1 year is 31_557_600s
 
         while(time < timeEnd){
             for (int i = 0 ; i<Constants.solarSystemNames.length ; i++) {
                 solarSystem.applyAttractionAllBody(i,timeStep);
 
             }
+
+            // sleep
             if (time % (timeStep*1)==0) {
                 display.renderSolarSystem(solarSystem);
                 System.out.println(time);
+                try {
+                    Thread.sleep(2);
+                } catch (InterruptedException e ){
+                    e.printStackTrace();
+                }
+
+
 //                display.render();
             }
 //            System.out.println(solarSystem.bodies.get(3).getx());
