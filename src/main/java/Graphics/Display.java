@@ -69,7 +69,7 @@ public class Display extends Canvas{
 
     public void renderBody(double[] xyz, String bodyName){
         int pixelx,pixely;
-        double maxDistance = 1e+9 ; // used as maximum distance to find the pixel the body should be at, *2 as its +x, -x as well?
+        double maxDistance = 1e+10 ; // used as maximum distance to find the pixel the body should be at, *2 as its +x, -x as well?
 // sets buffer strategy
         bs = this.getCanvas().getBufferStrategy();
         if (bs == null) {
@@ -78,7 +78,7 @@ public class Display extends Canvas{
         }
         // calculating the pixel x,y,z
         pixelx = (int) Math.round( this.width/2. + xyz[0]/maxDistance*(this.width/2. ) ); // half way across screen then depending on +- of the x value it will place it
-        pixely = (int) Math.round( this.width/2. + xyz[1]/maxDistance*(this.width/2. ) ); // half way across screen then depending on +- of the x value it will place it
+        pixely = (int) Math.round( this.height/2. + xyz[1]/maxDistance*(this.height/2. ) ); // half way across screen then depending on +- of the x value it will place it
 
         g = bs.getDrawGraphics();
         // Draw here
