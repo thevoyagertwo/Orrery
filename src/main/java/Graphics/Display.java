@@ -69,7 +69,7 @@ public class Display extends Canvas{
 
     public void renderBody(double[] xyz){
         int pixelx,pixely;
-        double maxDistance = 1e+10; // used as maximum distance to find the pixel the body should be at, *2 as its +x, -x as well?
+        double maxDistance = 1e+9 ; // used as maximum distance to find the pixel the body should be at, *2 as its +x, -x as well?
 // sets buffer strategy
         bs = this.getCanvas().getBufferStrategy();
         if (bs == null) {
@@ -83,7 +83,7 @@ public class Display extends Canvas{
         g = bs.getDrawGraphics();
         // Draw here
         g.setColor(Color.BLUE);
-        g.fillOval(pixelx, pixely, 10, 10);
+        g.fillOval(pixelx, pixely, 5, 5);
         // End drawing
 
         bs.show();

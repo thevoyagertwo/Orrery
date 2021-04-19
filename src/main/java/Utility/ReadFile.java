@@ -63,6 +63,11 @@ public class ReadFile {
         String[] stringArray = fileReader(bodyName , lineNumber);
         // converts to a double array
         double[] doubleArray = stringArrayToDoubleArray(stringArray);
+
+        for(int i = 3; i<doubleArray.length; i++){
+            doubleArray[i] *= 1000; // data is in Km,Km/s
+        }
+
         return doubleArray;
 
     }

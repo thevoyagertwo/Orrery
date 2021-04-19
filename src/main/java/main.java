@@ -5,6 +5,7 @@ import Graphics.Display;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.util.Arrays;
 
 
 public class main {
@@ -21,6 +22,8 @@ public class main {
         for (int i = 0 ; i<Constants.solarSystemNames.length ; i++){
             Constants.setInitialValues(Constants.solarSystemNames[i],solarSystem.bodies.get(i));
             solarSystem.setBodyVectorArray( i , ReadFile.getDoubleArrayVector(Constants.solarSystemNames[i], lineNumber) );
+            System.out.println(Arrays.toString(ReadFile.getDoubleArrayVector(Constants.solarSystemNames[i], lineNumber)));
+            System.out.println(solarSystem.bodies.get(i).getName());
         }
 
         // start display
@@ -28,7 +31,8 @@ public class main {
 
         int time = 0;
         int timeStep = 86400; // 1 day is 86400s
-        int timeEnd  = 50 * 31_557_600;  // 1 year is 31_557_600s
+//        int timeEnd  = 50 * 31_557_600;  // 1 year is 31_557_600s
+        int timeEnd  = 200 * 86400;  // 1 year is 31_557_600s
 
         while(time < timeEnd){
             for (int i = 0 ; i<Constants.solarSystemNames.length ; i++) {
@@ -37,6 +41,7 @@ public class main {
             }
             if (time % (timeStep*1)==0) {
                 display.renderSolarSystem(solarSystem);
+                System.out.println(time);
 //                display.render();
             }
 //            System.out.println(solarSystem.bodies.get(3).getx());

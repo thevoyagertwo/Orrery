@@ -80,7 +80,7 @@ public class BodyVariablesArray {
                 double[] xyz = this.bodies.get(body1).getxyz();
 
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                System.out.println(xyz[0]+ " " + xyz[3]+ " " +this.bodies.get(body1).getName() );
+//                System.out.println(xyz[0]+ " " + xyz[3]+ " " +this.bodies.get(body1).getName() );
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 // Equation is x = x + xv * time?
@@ -97,10 +97,13 @@ public class BodyVariablesArray {
 
                         // distance^3
                         double distance3 = Math.pow(this.calculateDistance(body1, body2), 3);
-
-                        System.out.println(body1var.getName() + " " + body2var.getName() + " Distance = " + this.calculateDistance(body1, body2));
-
-                        // Equation 3    G    M                      m              (     r_x1       -     r_x2        )   / r^3
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                        System.out.println(body1var.getName() + " " + body2var.getName() + " Distance = " + this.calculateDistance(body1, body2));
+//                        System.out.println(-(Constants.g  * body2var.getMass() * (body1var.getx() - body2var.getx())) / distance3);
+//                        System.out.println(body2var.getName() + " has mass of " + body2var.getMass() + "  = " +  body1var.getMass());
+                        System.out.println(body1var.getName() + " " + xyz[3]+ " " + -(Constants.g * body2var.getMass() * (body1var.getx() - body2var.getx())) / distance3);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        // Equation 3    G    M                      (     r_x1       -     r_x2        )   / r^3
                         xyz[3] += -(Constants.g * body2var.getMass() * (body1var.getx() - body2var.getx())) / distance3;
                         xyz[4] += -(Constants.g * body2var.getMass() * (body1var.gety() - body2var.gety())) / distance3;
                         xyz[5] += -(Constants.g * body2var.getMass() * (body1var.getz() - body2var.getz())) / distance3;

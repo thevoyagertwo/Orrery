@@ -2,7 +2,8 @@ package Utility;
 
 public class Constants {
     public static double g = 6.6743015e-11;
-    public static String[] solarSystemNames = new String[] {"sun","mercury","venus","earth","mars","jupiter","saturn","uranus","neptune"};
+//    public static String[] solarSystemNames = new String[] {"sun","mercury","venus","earth","mars","jupiter","saturn","uranus","neptune"};
+    public static String[] solarSystemNames = new String[] {"sun","earth"};
 
 
     //https://nssdc.gsfc.nasa.gov/planetary/factsheet/
