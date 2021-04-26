@@ -29,7 +29,7 @@ public class main {
         }
 
         // start display
-        Display display = new Display("Universe",2500,1000);
+        Display display = new Display("Universe",1400,1400);
 
         int time = 0;
         int timeStep = 86400; // 1 day is 86400s

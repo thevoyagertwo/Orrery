@@ -65,7 +65,7 @@ public class ReadFile {
         double[] doubleArray = stringArrayToDoubleArray(stringArray);
 
         for(int i = 3; i<doubleArray.length; i++){
-            doubleArray[i] *= 32000; // data is in Km,Km/s
+            doubleArray[i] *= 25000; // data is in Km,Km/s
         }
 
         return doubleArray;
